@@ -685,7 +685,7 @@
     let userWord = ''
     let history = []
 
-    let grid = document.getElementById('grid')
+    let container = document.getElementById('container')
     buildAlphabet()
     buildGrid()
     updateGrid()
@@ -780,14 +780,14 @@
         cell.textContent = ''
         row.appendChild(cell)
         }
-        grid.appendChild(row)
+        container.appendChild(row)
     }
     }
 
 
 
     function updateGrid() {
-    let row = grid.firstChild
+    let row = container.firstChild
     for (let attempt of history) {
         drawAttempt(row, attempt, false)
         row = row.nextSibling
@@ -830,19 +830,21 @@
     }
 
     function getBgColor(attempt, i) {
-    let correctLetter = answer[i]
-    let attemptLetter = attempt[i]
-    if (
-        attemptLetter === undefined ||
-        answer.indexOf(attemptLetter) === -1
-    ) {
-        // invalidLetter
-        return "#61045F";
-    }
-    if (correctLetter === attemptLetter) {
-        return '#538d4e'
-    }
-    return '#b59f3b'
+        let correctLetter = answer[i]
+        let attemptLetter = attempt[i]
+        if (
+            attemptLetter === undefined ||
+            answer.indexOf(attemptLetter) === -1
+        ) {
+            // حرف اشتباه وارد شده
+            return "#61045F";
+        }
+        if (correctLetter === attemptLetter) {
+        // حرف درست و در جای درست وارد شده
+            return '#538d4e'
+        }
+        // حرف درست ولی در جای درست نیست
+        return '#b59f3b'
     }
     function hexToRGB(hex) {
         return ('rgb(' + (hex = hex.replace('#', '')).match(new RegExp('(.{' + hex.length/3 + '})', 'g')).map(function(l) { return parseInt(hex.length%2 ? l+l : l, 16) }) + ')').replaceAll(',', ', ');
@@ -853,7 +855,8 @@
         ]
         .pop()||{})
         .parentNode||document)
-        .querySelectorAll(`div.cell[style*='background-color: ${hexToRGB('#538d4e')};']`).length === 5;
+        .querySelectorAll(`div.cell[style*='background-color: ${hexToRGB('#538d4e')};']`).length === 5
+
     }
 
     // bot answer
@@ -864,5 +867,8 @@
             // let botWord = ''
             history.push(botAnswer)
             botAnswer = ''
+            
+
         }
     )
+
