@@ -1,0 +1,100 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background: #AA076B;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #61045F, #AA076B);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #61045F, #AA076B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+}
+h1 {
+    font-size: 42px
+}
+
+
+.cell {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 10px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.keyboard-container{
+    display: flex;
+    justify-content: center;
+}
+.keyboard{
+    display: flex;
+    justify-content: center;
+    max-width: 490px;
+    flex-wrap: wrap;
+}
+.key {
+    width: 40px;
+    height: 40px;
+    line-height: 30px;
+    border: 1px solid #aaa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    background: rgba(151, 151, 151, 0.384);
+}
+.key:hover{
+    background: rgb(161, 0, 0);
+}
+
+.button{
+    color: white;
+    background: rgba(151, 151, 151, 0.384);
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+
+.bg{
+    transform: translateY(-30px);
+}
+
+.row{
+    display: none;
+}
+
+.row:first-of-type{
+    display: block!important;
+}
+
+
+@media only screen and (max-width: 500px) {
+    .cell {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 20px;
+    }
+    .key {
+        width: 35px;
+        height: 35px;
+        line-height: 30px;
+        font-size: 18px;
+    }
+    .button{
+        font-size: 18px;
+        border-radius: 10px;
+        margin: 10px;
+    }
+}

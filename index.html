@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>word game</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <h1>Word Game</h1>
+    <div class="result" id="result"></div>
+
+    <div id="resultGrid"></div>
+
+    <div class="grid" id="grid"></div>
+
+    <!-- kybord -->
+    <div id="alphabet" class="keyboard-container"></div>
+    <!-- Enter button -->
+    <button class="button" type="button" onclick="javascript:window.dispatchEvent(new KeyboardEvent('keydown',{'key':'enter'}));">تایید</button>
+    <!-- backspace button -->
+    <button class="button" type="button" onclick="javascript:window.dispatchEvent(new KeyboardEvent('keydown',{'key':'backspace'}));">پاک کردن</button>
+    <!-- restart game button-->
+    <button class="button" style='display: none;' type="button" onclick="javascript:window.location.href = window.location.href;">شروع دوباره</button>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>
